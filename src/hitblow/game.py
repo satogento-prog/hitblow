@@ -40,5 +40,8 @@ def play(digits=3):
             
             match.show_victory(tries, secret)
             print(f"正解！ {tries} 回で当たり（答え {secret}）")
+            from .evaluation import get_rank_message
+            rank_text = get_rank_message(tries)
+            print(f" 今回の評価：{rank_text}")
             break
         match.switch_turn()
