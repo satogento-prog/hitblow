@@ -27,6 +27,9 @@ def play(digits=3):
         # 例:  from .hint import hint
         #      if guess == "h":
         #          print(hint(secret)); continue
+        from .hint import show_hint
+        if tries >= 6:
+            show_hint(secret, guess)
 
         if len(guess) != digits or not guess.isdigit():
             print(f"{digits} 桁の数字で入力してね")
