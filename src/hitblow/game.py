@@ -18,6 +18,9 @@ def play(digits=3):
     match = MatchManager()
     match.start_match()
 
+    from .combo import GlobalHitTracker
+    tracker = GlobalHitTracker()
+
     tries = 0
     while True:
         match.show_turn()
@@ -47,4 +50,5 @@ def play(digits=3):
             rank_text = get_rank_message(tries)
             print(f" 今回の評価：{rank_text}")
             break
-        match.switch_turn()
+        from .combo import GlobalHitTracker
+        tracker.check_and_update(hit, match)
